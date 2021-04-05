@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(./image/cristian-palmer-XexawgzYOBc-unsplash.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+
+        #clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+
+        #circle {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(#40E0D0, #FF8C00, #FF0080);
+            border-radius: 50%;
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            animation: animate 5s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #insidecircle {
+            width: 280px;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+
+
+        #fish {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            /* width: 200px;
+            height: 200px;
+            position: absolute;
+            transform-origin: center;
+            margin: auto; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -155px;
+            margin-left: -145px;
+        }
+
+        #fish img {
+            position: absolute;
+            top: 7px;
+            left: -5px;
+        }
+
+
+
+        #hour {
+            width: 20%;
+            height: 4px;
+            border-radius: 5px;
+            background: rgb(43, 177, 211);
+            position: absolute;
+            /* calc 運算符號前後一定要有空白 */
+            top: calc(50% - 2px);
+            left: 50%;
+            transform-origin: left center;
+        }
+
+        #minute {
+            width: 40%;
+            height: 4px;
+            border-radius: 5px;
+            background: rgb(14, 127, 192);
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 50%;
+            transform-origin: left center;
+        }
+
+        #second {
+            width: 80%;
+            height: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 50%;
+            transform-origin: left center;
+        }
+
+        #second img {
+            width: 120px;
+            height: 150px;
+            top: 60%;
+            left: 53%;
+            position: absolute;
+            -webkit-transform: scaleX(-1);
+            transform: rotate(120deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="clock">
+        <div id="circle"></div>
+        <div id="insidecircle"></div>
+        <div id="fish"> <img src="./image/11.png"> </div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second">
+            <img src=./image/giphy22.gif>
+        </div>
+    </div>
+
+    <script>
+        const hour = document.getElementById('hour')
+        const fish = document.getElementById('fish')
+        const minute = document.getElementById('minute')
+        const second = document.getElementById('second')
+
+        const update = () => {
+            const now = new Date()
+            hour.style.transform = `rotate(${now.getHours() * 30 - 90}deg)`
+            fish.style.transform = `rotate(${now.getHours() * 30}deg)`
+            minute.style.transform = `rotate(${now.getMinutes() * 6 - 90}deg)`
+            second.style.transform = `rotate(${now.getSeconds() * 6 - 90}deg)`
+        }
+
+        setInterval(update, 1000)
+        update()
+
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
